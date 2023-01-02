@@ -8,6 +8,12 @@ RIGHT_EDGE= 400
 LEFT_EDGE = -400
 BOTTOM_EDGE = -400
 TOP_EDGE = 400
+BALL_SPEED = 5
+
+#This function will update the location of the ball
+def moveBall(ballSpeed):
+    ball.forward(ballSpeed)
+    
 
 #Global variables
 screen = Screen()
@@ -29,5 +35,6 @@ screen.tracer(0) #turn off auto screen updates to make it faster
 
 
 while True:
+    moveBall(BALL_SPEED)
     screen.update()
    
