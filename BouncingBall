@@ -8,21 +8,35 @@ RIGHT_EDGE= 400
 LEFT_EDGE = -400
 BOTTOM_EDGE = -400
 TOP_EDGE = 400
-BALL_SPEED = 5
 
 #This function will update the location of the ball
-def moveBall(ballSpeed):
-    #Check if ball hits either sidewall and if so, reverse direction
+def moveBall():
+    global xVel, yVel
+
+    #update the postiion of the ball
     x = ball.xcor()
-    if (x >= RIGHT_EDGE) or (x <= LEFT_EDGE):
-        ball.setheading(180-ball.heading())
-    
-    #Check if ball hits either top or bottom and if so, reverse direction
-    y = ball.ycor()
-    if (y >= TOP_EDGE) or (y <= BOTTOM_EDGE):
-        ball.setheading(360-ball.heading())
+    ball.setx(x + xVel)
         
-    ball.forward(ballSpeed)
+    y = ball.ycor()
+    ball.sety(y + yVel)
+
+    #Check for collisons and reverse the direction if so
+    if (x >= RIGHT_EDGE):
+        xVel *= -1
+        ball.setx(x + xVel-5)
+
+    if (x <= LEFT_EDGE):
+        xVel *= -1
+        ball.setx(x + xVel+5)
+   
+    if (y <= BOTTOM_EDGE):
+        yVel *= -1
+        ball.sety(y + yVel+5)
+
+    if (y >= TOP_EDGE):
+        yVel *= -1
+        ball.sety(y + yVel-5)
+
     
 
 #Global variables
@@ -41,10 +55,16 @@ ball.speed(0)
 ball.sety(0)
 ball.setheading(20)
 
+#Define initial position and speed of the ball
+ballX = 0
+ballY = 0
+xVel = 5
+yVel = 3
+
 screen.tracer(0) #turn off auto screen updates to make it faster
 
 
 while True:
-    moveBall(BALL_SPEED)
+    moveBall()
     screen.update()
    
