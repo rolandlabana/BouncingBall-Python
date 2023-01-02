@@ -12,6 +12,15 @@ BALL_SPEED = 5
 
 #This function will update the location of the ball
 def moveBall(ballSpeed):
+    #Check if ball hits either sidewall and if so, reverse direction
+    x = ball.xcor()
+    if (x >= rightEdge) or (x <= leftEdge):
+        ball.setheading(180-ball.heading())
+    
+    #Check if ball hits either top or bottom and if so, reverse direction
+    if (y >= topEdge) or (y <= bottomEdge):
+        ball.setheading(360-ball.heading())
+        
     ball.forward(ballSpeed)
     
 
