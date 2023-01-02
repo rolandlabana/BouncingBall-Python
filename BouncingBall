@@ -14,11 +14,12 @@ BALL_SPEED = 5
 def moveBall(ballSpeed):
     #Check if ball hits either sidewall and if so, reverse direction
     x = ball.xcor()
-    if (x >= rightEdge) or (x <= leftEdge):
+    if (x >= RIGHT_EDGE) or (x <= LEFT_EDGE):
         ball.setheading(180-ball.heading())
     
     #Check if ball hits either top or bottom and if so, reverse direction
-    if (y >= topEdge) or (y <= bottomEdge):
+    y = ball.ycor()
+    if (y >= TOP_EDGE) or (y <= BOTTOM_EDGE):
         ball.setheading(360-ball.heading())
         
     ball.forward(ballSpeed)
