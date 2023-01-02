@@ -29,7 +29,7 @@ ball.color("blue")
 ball.position()
 ball.speed(0)
 ball.sety(0)
-ball.setheading(20)
+ball.setheading(0)
 
 screen.tracer(0) #turn off auto screen updates to make it faster
 
