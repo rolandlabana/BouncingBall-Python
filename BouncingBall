@@ -9,6 +9,8 @@ LEFT_EDGE = -400
 BOTTOM_EDGE = -400
 TOP_EDGE = 400
 
+GRAVITY = .1
+
 #This function will update the location of the ball
 def moveBall():
     global xVel, yVel
@@ -18,6 +20,7 @@ def moveBall():
     ball.setx(x + xVel)
         
     y = ball.ycor()
+    yVel = yVel - GRAVITY
     ball.sety(y + yVel)
 
     #Check for collisons and reverse the direction if so
