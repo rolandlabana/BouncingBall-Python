@@ -10,6 +10,7 @@ BOTTOM_EDGE = -400
 TOP_EDGE = 400
 
 GRAVITY = .1
+DAMPING = .8
 
 #This function will update the location of the ball
 def moveBall():
@@ -20,7 +21,7 @@ def moveBall():
     ball.setx(x + xVel)
         
     y = ball.ycor()
-    yVel = yVel - GRAVITY
+    yVel = yVel - GRAVITY   #only y is impacted by gravity
     ball.sety(y + yVel)
 
     #Check for collisons and reverse the direction if so
@@ -34,6 +35,7 @@ def moveBall():
    
     if (y <= BOTTOM_EDGE):
         yVel *= -1
+        yVel = yVel * DAMPING #damping effect
         ball.sety(y + yVel+5)
 
     if (y >= TOP_EDGE):
