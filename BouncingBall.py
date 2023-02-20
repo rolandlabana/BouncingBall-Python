@@ -1,4 +1,5 @@
 #first change after syncing to local mac repo and commiting within visual code studio - just this comment
+#second change made after loading into V
 #import needed libraries   
 import turtle
 from turtle import *
